@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academia | Performance Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#faf8ff",
+                    "surface-tint": "#0053db",
+                    "primary": "#004ac6",
+                    "inverse-surface": "#283044",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "secondary": "#505f76",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-secondary-container": "#54647a",
+                    "on-primary": "#ffffff",
+                    "on-background": "#131b2e",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-variant": "#dae2fd",
+                    "surface-container-low": "#f2f3ff",
+                    "tertiary": "#784b00",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d2d9f4",
+                    "on-surface": "#131b2e",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffeedd",
+                    "outline-variant": "#c3c6d7",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "tertiary-container": "#996100",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-primary": "#b4c5ff",
+                    "surface": "#faf8ff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434655",
+                    "background": "#faf8ff",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-container-highest": "#dae2fd",
+                    "surface-container-high": "#e2e7ff",
+                    "primary-container": "#2563eb",
+                    "surface-container": "#eaedff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "secondary-container": "#d0e1fb",
+                    "inverse-on-surface": "#eef0ff",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#00174b",
+                    "on-error-container": "#93000a",
+                    "outline": "#737686",
+                    "on-tertiary-fixed": "#2a1700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "20px",
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "xl": "40px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display": ["Inter"],
+                    "body-md": ["Inter"],
+                    "button": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar { transition: height 1s ease-in-out; }
+        .metric-card-shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="fixed left-0 top-0 h-full hidden lg:flex flex-col p-md bg-surface border-r border-outline-variant w-[240px] z-40">
+<div class="mb-xl flex items-center px-sm">
+<span class="text-headline-md font-headline-md text-primary">Academia</span>
+</div>
+<nav class="flex-1 space-y-xs">
+<!-- Analytics is the active tab -->
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-body-md text-body-md">Assignments</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md text-body-md">Calendar</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="book">book</span>
+<span class="font-body-md text-body-md">Subjects</span>
+</a>
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-lg px-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="font-bold">AR</span>
+</div>
+<div class="overflow-hidden">
+<p class="font-body-md text-body-md font-bold truncate">Alex Rivers</p>
+<p class="text-xs text-on-surface-variant truncate">Junior Year</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-[240px] pb-24 lg:pb-12">
+<!-- TopAppBar (Mobile view) -->
+<header class="flex justify-between items-center px-lg py-md w-full sticky top-0 z-50 bg-surface shadow-sm lg:px-xl lg:py-lg">
+<div class="flex items-center gap-md">
+<button class="lg:hidden p-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-md lg:text-headline-lg font-headline-lg text-primary">Performance Insights</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="hidden md:flex bg-primary text-on-primary px-lg py-sm rounded-lg font-button hover:opacity-90 transition-opacity active:scale-[0.98]">
+                    Generate Report
+                </button>
+</div>
+</header>
+<section class="p-md lg:p-xl space-y-lg">
+<!-- Key Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Completion Rate Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Completion Rate</span>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<h2 class="text-display font-display text-on-surface mt-xs">94.2%</h2>
+</div>
+<div class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+<span>+2.4% from last month</span>
+</div>
+</div>
+<!-- Late Assignments Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Late Submissions</span>
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+</div>
+<h2 class="text-display font-display text-on-surface mt-xs">02</h2>
+</div>
+<div class="flex items-center gap-xs text-error font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
+<span>1 due by Friday</span>
+</div>
+</div>
+<!-- Average Grade Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Academic GPA</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="grade">grade</span>
+</div>
+<h2 class="text-display font-display text-on-surface mt-xs">3.88</h2>
+</div>
+<div class="flex items-center gap-xs text-secondary font-label-sm text-label-sm">
+<span>Top 5% of Department</span>
+</div>
+</div>
+<!-- Study Hours Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Focus Time</span>
+<span class="material-symbols-outlined text-secondary" data-icon="timer">timer</span>
+</div>
+<h2 class="text-display font-display text-on-surface mt-xs">28.5h</h2>
+</div>
+<div class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span>On track for weekly goal</span>
+</div>
+</div>
+</div>
+<!-- Main Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Weekly Productivity Chart (Span 2) -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow relative overflow-hidden">
+<div class="flex justify-between items-center mb-lg">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Weekly Productivity</h3>
+<p class="text-on-surface-variant text-body-md">Hours logged per day this week</p>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-low p-xs rounded-lg">
+<button class="px-md py-xs bg-white shadow-sm rounded-md text-body-md font-bold text-primary">Hours</button>
+<button class="px-md py-xs text-on-surface-variant text-body-md">Tasks</button>
+</div>
+</div>
+<!-- Simplified Chart Visualization -->
+<div class="h-64 flex items-end justify-between px-md gap-4 relative">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none opacity-20">
+<div class="border-t border-outline"></div>
+<div class="border-t border-outline"></div>
+<div class="border-t border-outline"></div>
+<div class="border-t border-outline"></div>
+</div>
+<!-- Bars -->
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary-fixed-dim rounded-t-lg group-hover:bg-primary transition-colors" style="height: 45%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-on-surface-variant">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary-fixed-dim rounded-t-lg group-hover:bg-primary transition-colors" style="height: 65%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-on-surface-variant">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary rounded-t-lg group-hover:bg-primary transition-colors" style="height: 85%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-primary font-bold">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary-fixed-dim rounded-t-lg group-hover:bg-primary transition-colors" style="height: 40%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-on-surface-variant">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary-fixed-dim rounded-t-lg group-hover:bg-primary transition-colors" style="height: 70%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-on-surface-variant">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary-fixed-dim rounded-t-lg group-hover:bg-primary transition-colors" style="height: 25%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-on-surface-variant">Sat</span>
+</div>
+<div class="flex-1 flex flex-col items-center group relative h-full justify-end">
+<div class="chart-bar w-full bg-primary-fixed-dim rounded-t-lg group-hover:bg-primary transition-colors" style="height: 15%;"></div>
+<span class="mt-md text-label-sm font-label-sm text-on-surface-variant">Sun</span>
+</div>
+</div>
+</div>
+<!-- Subject Focus Breakdown -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Subject Focus</h3>
+<div class="space-y-lg">
+<!-- Progress Items -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center text-body-md">
+<span class="font-bold text-on-surface">Computer Science</span>
+<span class="text-on-surface-variant">12.4h</span>
+</div>
+<div class="h-2 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center text-body-md">
+<span class="font-bold text-on-surface">Data Structures</span>
+<span class="text-on-surface-variant">8.2h</span>
+</div>
+<div class="h-2 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[55%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center text-body-md">
+<span class="font-bold text-on-surface">Linear Algebra</span>
+<span class="text-on-surface-variant">4.9h</span>
+</div>
+<div class="h-2 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[35%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center text-body-md">
+<span class="font-bold text-on-surface">Humanities</span>
+<span class="text-on-surface-variant">3.0h</span>
+</div>
+<div class="h-2 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-outline w-[20%] rounded-full"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl py-md text-primary font-button border border-primary/20 rounded-lg hover:bg-primary-container/10 transition-colors">
+                        View Detailed Log
+                    </button>
+</div>
+</div>
+<!-- Lower Section: Completion Trends and Study Buddy -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<!-- Completion Trends Visualization -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant metric-card-shadow">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">Completion Trends</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Last 30 Days</span>
+</div>
+<div class="relative h-48 w-full mt-md">
+<!-- CSS Generated Sine-like Curve via SVG Path -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q10,20 20,40 T40,60 T60,30 T80,50 T100,10" fill="none" stroke="rgba(0, 74, 198, 0.5)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0,80 Q10,20 20,40 T40,60 T60,30 T80,50 T100,10 V100 H0 Z" fill="url(#grad1)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,74,198);stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<div class="flex justify-between mt-md px-2 text-label-sm text-on-surface-variant">
+<span>Sep 01</span>
+<span>Sep 15</span>
+<span>Today</span>
+</div>
+</div>
+<!-- Motivation/Insight Card -->
+<div class="bg-primary p-lg rounded-xl border border-primary-container text-on-primary flex items-center gap-lg relative overflow-hidden">
+<!-- Atmospheric Effect -->
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-12 -bottom-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex-1">
+<h3 class="font-headline-md text-headline-md mb-sm">Mid-Term Readiness</h3>
+<p class="text-primary-fixed-dim text-body-md mb-lg leading-relaxed">
+                            Based on your current completion rate and study patterns, you're projected to finish all review materials 3 days before the Final Exam. Keep this momentum!
+                        </p>
+<div class="flex gap-md">
+<button class="bg-white text-primary px-lg py-sm rounded-lg font-button active:scale-95 transition-transform">Schedule Review</button>
+<button class="text-white border border-white/20 px-lg py-sm rounded-lg font-button hover:bg-white/10 transition-colors">View Projection</button>
+</div>
+</div>
+<div class="hidden md:block w-32 h-32 flex-shrink-0 relative">
+<!-- Academic Mascot/Icon Placeholder Style -->
+<div class="w-full h-full bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full lg:hidden z-50 flex justify-around items-center px-md pb-safe h-16 bg-surface border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-label-sm text-label-sm">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-label-sm text-label-sm">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate progress bars on load
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const finalHeight = bar.style.height;
+                bar.style.height = '0px';
+                setTimeout(() => {
+                    bar.style.height = finalHeight;
+                }, 200);
+            });
+
+            // Toggle Sidebar for mobile (simulated)
+            const menuBtn = document.querySelector('[data-icon="menu"]');
+            if (menuBtn) {
+                menuBtn.parentElement.onclick = () => {
+                    alert('Navigation drawer would open here in mobile view.');
+                };
+            }
+        });
+    </script>
+</body></html>

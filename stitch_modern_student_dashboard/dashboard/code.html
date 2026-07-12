@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Academia - Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#2563eb",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-container-low": "#f2f3ff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#784b00",
+                    "inverse-primary": "#b4c5ff",
+                    "on-secondary-container": "#54647a",
+                    "on-tertiary-fixed": "#2a1700",
+                    "primary": "#004ac6",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-container": "#996100",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef0ff",
+                    "inverse-surface": "#283044",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-bright": "#faf8ff",
+                    "outline": "#737686",
+                    "on-primary-container": "#eeefff",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-container": "#ffeedd",
+                    "on-surface-variant": "#434655",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-variant": "#dae2fd",
+                    "on-surface": "#131b2e",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "surface-container-highest": "#dae2fd",
+                    "error-container": "#ffdad6",
+                    "background": "#faf8ff",
+                    "error": "#ba1a1a",
+                    "on-background": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e2e7ff",
+                    "surface-container": "#eaedff",
+                    "surface": "#faf8ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary": "#505f76",
+                    "outline-variant": "#c3c6d7",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0053db",
+                    "surface-dim": "#d2d9f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "16px",
+                    "xl": "20px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xs": "4px",
+                    "gutter": "20px",
+                    "sm": "8px",
+                    "xl": "40px",
+                    "container-max": "1280px",
+                    "base": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { display: none; }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: -2px;
+            height: 3px;
+            width: 20px;
+            background: #004ac6;
+            border-radius: 99px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top AppBar -->
+<header class="bg-surface dark:bg-on-secondary-fixed shadow-[0_1px_3px_0_rgba(0,0,0,0.05),0_1px_2px_0_rgba(0,0,0,0.03)] flex justify-between items-center px-lg py-md w-full sticky top-0 z-50">
+<div class="flex items-center gap-sm">
+<img alt="Academia Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsWZ9Nltl1JMLNfbrSIC6syVoe_EISFh9gjfEfrSg93dIqyFqwLqIv0wz9uUlRKsaVSRLHJk947AiPxQV0D03kQ313fOKMyDLujQAbtIcKpz-jntEgJFowlJ2vW7XAe-XHD5T6FeYdIRnhpgElfo3XFe7g5ezVUQvdftCh0ZFkHSh1u7968v0dMMyhVZ-YI_3hR0sWegy_TJgllvVg2gDTYFOkoP_EXMaqU5ZbYVaAjVFvUKyI83AJVOT4"/>
+<h1 class="text-headline-md font-headline-md text-primary">Academia</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="relative p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<div class="w-9 h-9 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A focused close-up profile portrait of a modern university student with a friendly expression. The lighting is soft and natural, suggesting a bright campus library environment. The aesthetic is clean, professional, and optimistic, matching a high-productivity academic application dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-B8Z0og2FKG9x86Q3aNV1M50gsEKYhTfAJe2rKVpMynULhQ_M0XI_0QxGmkOFrvLLHXBXfQGS5fbTLA-aYvs7d0M5RwS8B8GiZF6PwQ1wa-hf-vF9nvikwiGJKxP3E4PQZ_x2zADXLSKoUvOEDOE7461KcIpWOJ9ZDE5iEYFdbHu4Q7dndaCGi3vXg-zrSL4wAwQczWo-Ukio77cosuC-NCBs1BeJjlvpvh_lUGB6vC3repRAOp49aY2bJeKnjUQoV3GMb6xzaU"/>
+</div>
+</div>
+</header>
+<main class="px-md mt-lg space-y-lg">
+<!-- Stats Grid (Bento Style) -->
+<section>
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 flex flex-col justify-between h-32">
+<span class="material-symbols-outlined text-primary-container text-2xl">assignment</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Total Assignments</p>
+<p class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">12</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 flex flex-col justify-between h-32">
+<span class="material-symbols-outlined text-error text-2xl">pending_actions</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Pending</p>
+<p class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">5</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 flex flex-col justify-between h-32">
+<span class="material-symbols-outlined text-tertiary text-2xl">event_busy</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Due Today</p>
+<p class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">2</p>
+</div>
+</div>
+<div class="bg-primary-container p-md rounded-lg shadow-sm flex flex-col justify-between h-32 text-on-primary">
+<span class="material-symbols-outlined text-on-primary text-2xl">check_circle</span>
+<div>
+<p class="text-label-sm font-label-sm opacity-90">Completed</p>
+<p class="text-headline-lg-mobile font-headline-lg-mobile">7</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Progress Chart Section -->
+<section class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30">
+<div class="flex justify-between items-center mb-md">
+<h2 class="text-headline-md font-headline-md text-on-surface">Weekly Progress</h2>
+<span class="text-label-sm font-label-sm text-primary">This Week</span>
+</div>
+<div class="h-40 flex items-end justify-between px-sm gap-2">
+<!-- Simple bar representation -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary-container h-16 transition-all duration-1000"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Mon</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary-container h-20 transition-all duration-1000"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Tue</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary-container h-8 transition-all duration-1000"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Wed</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary-container h-24 transition-all duration-1000"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Thu</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary-container h-12 transition-all duration-1000"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Fri</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary-container h-4 transition-all duration-1000"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Sat</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-secondary-container rounded-t-full h-24 relative overflow-hidden">
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Sun</span>
+</div>
+</div>
+</section>
+<!-- Upcoming Assignments (Horizontal Scroll) -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h2 class="text-headline-md font-headline-md text-on-surface">Upcoming</h2>
+<button class="text-label-sm font-label-sm text-primary">View All</button>
+</div>
+<div class="flex gap-md overflow-x-auto custom-scrollbar -mx-md px-md pb-xs">
+<!-- Card 1 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 space-y-md">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 bg-surface-variant text-on-primary-fixed-variant rounded-md text-[10px] font-bold uppercase tracking-wider">CS301</span>
+<span class="material-symbols-outlined text-on-surface-variant/40">more_vert</span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface leading-tight">Advanced Algorithms Review</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 24, 2023
+                        </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-primary-container text-[8px] flex items-center justify-center text-on-primary">AR</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-secondary text-[8px] flex items-center justify-center text-on-secondary">JS</div>
+</div>
+<span class="text-[11px] font-bold text-error">High Priority</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 space-y-md">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-md text-[10px] font-bold uppercase tracking-wider">MAT202</span>
+<span class="material-symbols-outlined text-on-surface-variant/40">more_vert</span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface leading-tight">Calculus III Problem Set 4</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 26, 2023
+                        </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-primary-container text-[8px] flex items-center justify-center text-on-primary">AR</div>
+</div>
+<span class="text-[11px] font-bold text-on-secondary-fixed-variant">Medium</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Today's Tasks Checklist -->
+<section class="space-y-md">
+<h2 class="text-headline-md font-headline-md text-on-surface">Today's Tasks</h2>
+<div class="space-y-sm">
+<!-- Task Item 1 -->
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 flex items-center gap-md group active:scale-[0.99] transition-transform">
+<button 1\'="" class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors hover:border-primary-container" fill\"="" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined text-primary text-[18px]\' style=\'font-variation-settings: \">check_circle'; this.parentElement.classList.add('opacity-50')"&gt;
+                    </button>
+<div class="flex-1">
+<p class="text-body-md font-body-md text-on-surface">Read Chapter 5: Graph Theory</p>
+<p class="text-[11px] font-medium text-on-surface-variant">Due by 5:00 PM</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">drag_indicator</span>
+</div>
+<!-- Task Item 2 -->
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 flex items-center gap-md group active:scale-[0.99] transition-transform">
+<button 1\'="" class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center" fill\"="" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined text-primary text-[18px]\' style=\'font-variation-settings: \">check_circle'; this.parentElement.classList.add('opacity-50')"&gt;
+                    </button>
+<div class="flex-1">
+<p class="text-body-md font-body-md text-on-surface">Draft Intro for Ethics Essay</p>
+<p class="text-[11px] font-medium text-on-surface-variant">Optional</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">drag_indicator</span>
+</div>
+<!-- Task Item 3 -->
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant/30 flex items-center gap-md group active:scale-[0.99] transition-transform">
+<div class="w-6 h-6 rounded-full border-2 border-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1">check_circle</span>
+</div>
+<div class="flex-1 opacity-50">
+<p class="text-body-md font-body-md text-on-surface line-through">Submit Lab Report 2</p>
+<p class="text-[11px] font-medium text-on-surface-variant">Done</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">drag_indicator</span>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-md w-14 h-14 bg-primary-container text-on-primary rounded-xl shadow-xl flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full lg:hidden z-50 bg-surface dark:bg-on-secondary-fixed border-t border-outline-variant/20 shadow-lg flex justify-around items-center px-md pb-safe h-16">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="text-label-sm font-label-sm">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="text-label-sm font-label-sm">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-label-sm font-label-sm">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-sm font-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('section > div > div').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.add('ring-2', 'ring-primary-container', 'ring-opacity-50');
+                setTimeout(() => {
+                    this.classList.remove('ring-2', 'ring-primary-container', 'ring-opacity-50');
+                }, 400);
+            });
+        });
+    </script>
+</body></html>

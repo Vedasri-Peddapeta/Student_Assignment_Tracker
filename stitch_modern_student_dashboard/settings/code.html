@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - Academia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#2563eb",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffddb8",
+                    "surface-container-low": "#f2f3ff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#784b00",
+                    "inverse-primary": "#b4c5ff",
+                    "on-secondary-container": "#54647a",
+                    "on-tertiary-fixed": "#2a1700",
+                    "primary": "#004ac6",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-container": "#996100",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef0ff",
+                    "inverse-surface": "#283044",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-bright": "#faf8ff",
+                    "outline": "#737686",
+                    "on-primary-container": "#eeefff",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-container": "#ffeedd",
+                    "on-surface-variant": "#434655",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-variant": "#dae2fd",
+                    "on-surface": "#131b2e",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "surface-container-highest": "#dae2fd",
+                    "error-container": "#ffdad6",
+                    "background": "#faf8ff",
+                    "error": "#ba1a1a",
+                    "on-background": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e2e7ff",
+                    "surface-container": "#eaedff",
+                    "surface": "#faf8ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary": "#505f76",
+                    "outline-variant": "#c3c6d7",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0053db",
+                    "surface-dim": "#d2d9f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xs": "4px",
+                    "gutter": "20px",
+                    "sm": "8px",
+                    "xl": "40px",
+                    "container-max": "1280px",
+                    "base": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 24px;
+            background-color: #004ac6;
+            border-radius: 0 4px 4px 0;
+        }
+        .settings-list-item:active { transform: scale(0.98); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-20 lg:pb-0 lg:pl-[240px]">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="fixed left-0 top-0 h-full hidden lg:flex flex-col p-md w-[240px] bg-surface border-r border-outline-variant z-40">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-md font-headline-md text-primary">Academia</h1>
+</div>
+<div class="flex items-center gap-md p-md mb-xl bg-surface-container-low rounded-xl">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional close-up studio portrait of a young computer science student with a friendly expression. The lighting is soft and natural, coming from the side to create gentle depth. The background is a clean, out-of-focus academic office with hints of blue and white tones to match the tracker's primary color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZQJvWXvNActTzfxLTUDV-6QvyLM9_mjP5gsaFAj4SnwDGNAeBFHFTkIoTs56v8zeYjnq7uPQT5hTZRenVBrCxxTsy3rSGw5tw6qTTO-ZIQU89xfki1rZOms8RtSKpAStNaDYsiaL_ffSAgpDb0oSwb7XVSLvse1bS2y4E3AxjipESYq9xjSne_9MgIMm5nrQ4zSzH3dOpEgMSl-cX_6rzFUuDU5dn6pFJQ9IZ3cje0_wMedQK9ACZUf4bu7VFYD4cVoOaY5l9Wlk"/>
+<div class="overflow-hidden">
+<p class="font-body-md text-body-md text-on-surface truncate">Alex Rivers</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant truncate">Computer Science</p>
+</div>
+</div>
+<nav class="space-y-sm flex-1">
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-body-md text-body-md">Assignments</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md text-body-md">Calendar</span>
+</a>
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Top App Bar (Mobile/Tablet) -->
+<header class="flex justify-between items-center px-lg py-md w-full sticky top-0 z-50 bg-surface shadow-sm lg:hidden">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform">menu</button>
+<span class="font-headline-md text-headline-md text-primary">Settings</span>
+</div>
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform">dark_mode</button>
+</header>
+<!-- Main Canvas -->
+<main class="max-w-4xl mx-auto p-md lg:p-xl">
+<!-- Header Section (Desktop) -->
+<div class="hidden lg:block mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Account Settings</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Manage your academic profile and application preferences.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Settings Sidebar/List -->
+<div class="md:col-span-4">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-[0_1px_3px_0_rgba(0,0,0,0.05)]">
+<button class="w-full flex items-center justify-between p-md bg-secondary-container border-l-4 border-primary text-primary transition-all">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container-low text-on-surface-variant transition-all border-l-4 border-transparent">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-body-md text-body-md">Password</span>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container-low text-on-surface-variant transition-all border-l-4 border-transparent">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-body-md text-body-md">Notifications</span>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container-low text-on-surface-variant transition-all border-l-4 border-transparent">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined">palette</span>
+<span class="font-body-md text-body-md">Appearance</span>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="md:col-span-8 space-y-lg">
+<!-- Profile Section -->
+<section class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-[0_1px_3px_0_rgba(0,0,0,0.05)]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Profile Information</h3>
+<div class="space-y-md">
+<div class="flex flex-col md:flex-row md:items-center gap-lg py-md border-b border-outline-variant">
+<div class="relative group cursor-pointer">
+<img class="w-20 h-20 rounded-full border-2 border-primary-container" data-alt="A clean, high-resolution portrait placeholder for a profile setting screen. The image should feature a stylized default avatar or a soft, professional human portrait in a brightly lit academic environment. The color scheme is predominantly soft blues and whites to maintain the minimalist and focused student tracker aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Df5ouCdCSuf27HNs5ZD7dD-Bq9k0qRo-J3R6daUc6Ul4B4KN1zwruycBXK4x31yk2wrwuoXY1N1lho92kBxdwEgAw9gi3lHrDBlnhaohddUIE9oPESz2q_scMw0kAtrfaVb40JmpkNLZDZlkGOwzYCFMvt8TyjM4u2AusWAhRR9edKHFPpDhJidk2FAIaQNw93iMltuBf_MkcZX2valhSY1kyk1Ze3LoEEhXPbs7tLWoSjc_qkdAuxQzb0Lc8hMOxw3jFIhxdIs"/>
+<div class="absolute inset-0 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">edit</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface">Profile Photo</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Recommended size: 400x400px. JPG or PNG.</p>
+</div>
+<button class="px-md py-sm border border-outline text-on-surface font-button text-button rounded-lg hover:bg-surface-container-low transition-colors">Change</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md pt-md">
+<div class="space-y-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Full Name</label>
+<input class="w-full p-md border border-outline-variant rounded-xl font-body-md text-body-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all" type="text" value="Alex Rivers"/>
+</div>
+<div class="space-y-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Major</label>
+<input class="w-full p-md border border-outline-variant rounded-xl font-body-md text-body-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all" type="text" value="Computer Science"/>
+</div>
+<div class="sm:col-span-2 space-y-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Email Address</label>
+<input class="w-full p-md border border-outline-variant rounded-xl font-body-md text-body-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all" type="email" value="alex.rivers@university.edu"/>
+</div>
+</div>
+<div class="pt-lg flex justify-end gap-md">
+<button class="px-lg py-md font-button text-button text-on-surface hover:bg-surface-container-low rounded-lg transition-colors">Discard</button>
+<button class="px-lg py-md font-button text-button bg-primary text-white rounded-lg shadow-sm hover:brightness-110 active:scale-95 transition-all">Save Changes</button>
+</div>
+</div>
+</section>
+<!-- Theme Selection -->
+<section class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-[0_1px_3px_0_rgba(0,0,0,0.05)]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Appearance</h3>
+<div class="grid grid-cols-2 gap-lg">
+<button class="flex flex-col gap-sm p-md rounded-xl border-2 border-primary bg-primary-fixed/20 text-left transition-all">
+<div class="h-20 w-full bg-white rounded-lg border border-outline-variant flex flex-col p-sm gap-xs overflow-hidden">
+<div class="w-1/2 h-2 bg-primary rounded-full"></div>
+<div class="w-3/4 h-2 bg-surface-variant rounded-full"></div>
+<div class="w-full h-full bg-surface-container rounded-lg mt-sm"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Light Mode</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<button class="flex flex-col gap-sm p-md rounded-xl border-2 border-outline-variant hover:border-outline text-left transition-all">
+<div class="h-20 w-full bg-on-surface rounded-lg border border-outline-variant flex flex-col p-sm gap-xs overflow-hidden">
+<div class="w-1/2 h-2 bg-primary rounded-full"></div>
+<div class="w-3/4 h-2 bg-secondary rounded-full"></div>
+<div class="w-full h-full bg-on-surface-variant rounded-lg mt-sm"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Dark Mode</span>
+</button>
+</div>
+</section>
+<!-- Danger Zone -->
+<section class="bg-error-container/10 p-lg rounded-xl border border-error/20 shadow-[0_1px_3px_0_rgba(0,0,0,0.05)]">
+<div class="flex items-start gap-md mb-md">
+<div class="p-sm bg-error-container rounded-lg">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-error">Danger Zone</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Permanently delete your account and all academic data. This action cannot be undone.</p>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="px-lg py-md font-button text-button bg-error text-on-error rounded-lg shadow-sm hover:bg-error/90 active:scale-95 transition-all">Delete My Account</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="fixed bottom-0 w-full lg:hidden z-50 flex justify-around items-center px-md pb-safe h-16 bg-surface border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">list_alt</span>
+<span class="font-label-sm text-label-sm">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">event</span>
+<span class="font-label-sm text-label-sm">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">bar_chart</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for theme selection
+        const themeButtons = document.querySelectorAll('section:nth-of-type(2) button');
+        themeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                themeButtons.forEach(b => {
+                    b.classList.remove('border-primary', 'bg-primary-fixed/20');
+                    b.classList.add('border-outline-variant');
+                    const icon = b.querySelector('.material-symbols-outlined');
+                    if (icon) icon.remove();
+                });
+                btn.classList.add('border-primary', 'bg-primary-fixed/20');
+                btn.classList.remove('border-outline-variant');
+                const flexDiv = btn.querySelector('.flex');
+                if (flexDiv) {
+                    const check = document.createElement('span');
+                    check.className = 'material-symbols-outlined text-primary';
+                    check.style.fontVariationSettings = "'FILL' 1";
+                    check.innerText = 'check_circle';
+                    flexDiv.appendChild(check);
+                }
+            });
+        });
+
+        // Toggle functionality for mobile menu (placeholder)
+        const menuBtn = document.querySelector('header button:first-child');
+        menuBtn.addEventListener('click', () => {
+            alert('Mobile navigation menu would expand here in a full implementation.');
+        });
+    </script>
+</body></html>

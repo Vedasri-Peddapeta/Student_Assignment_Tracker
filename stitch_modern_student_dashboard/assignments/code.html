@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academia | Assignments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#2563eb",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-low": "#f2f3ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#784b00",
+                        "inverse-primary": "#b4c5ff",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary-fixed": "#2a1700",
+                        "primary": "#004ac6",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-container": "#996100",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eef0ff",
+                        "inverse-surface": "#283044",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-bright": "#faf8ff",
+                        "outline": "#737686",
+                        "on-primary-container": "#eeefff",
+                        "secondary-container": "#d0e1fb",
+                        "on-tertiary-container": "#ffeedd",
+                        "on-surface-variant": "#434655",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-variant": "#dae2fd",
+                        "on-surface": "#131b2e",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-container-highest": "#dae2fd",
+                        "error-container": "#ffdad6",
+                        "background": "#faf8ff",
+                        "error": "#ba1a1a",
+                        "on-background": "#131b2e",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-container": "#eaedff",
+                        "surface": "#faf8ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary": "#505f76",
+                        "outline-variant": "#c3c6d7",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#0053db",
+                        "surface-dim": "#d2d9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xs": "4px",
+                        "gutter": "20px",
+                        "sm": "8px",
+                        "xl": "40px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "button": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "button": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf8ff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface custom-scrollbar">
+<!-- Desktop Navigation Drawer -->
+<aside class="fixed left-0 top-0 h-full hidden lg:flex flex-col p-md w-[240px] bg-surface border-r border-outline-variant z-50">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-md font-headline-md text-primary">Academia</h1>
+</div>
+<div class="flex items-center gap-md p-md mb-lg bg-surface-container-low rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold">Alex Rivers</p>
+<p class="text-xs text-on-surface-variant">Computer Science</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-body-md text-body-md">Assignments</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md text-body-md">Calendar</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">book</span>
+<span class="font-body-md text-body-md">Subjects</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-secondary-fixed-variant hover:bg-surface-container-high transition-all rounded-lg mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-[240px] min-h-screen pb-32 lg:pb-lg">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-lg py-md w-full sticky top-0 z-40 bg-surface shadow-sm lg:hidden">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="text-headline-md font-headline-md text-primary">Academia</h1>
+</div>
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+</header>
+<div class="max-w-container-max mx-auto px-md lg:px-xl py-lg">
+<!-- Page Header & Search -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-lg mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Manage Assignments</h2>
+<p class="text-body-md text-on-surface-variant">Track your progress and upcoming deadlines.</p>
+</div>
+<button class="flex items-center justify-center gap-sm bg-primary-container text-on-primary px-lg py-md rounded-xl font-button text-button hover:bg-primary transition-colors active:scale-95 shadow-md">
+<span class="material-symbols-outlined">add</span>
+                    New Assignment
+                </button>
+</div>
+<!-- Filters Bar -->
+<div class="bg-surface-container-lowest p-md rounded-2xl shadow-sm border border-outline-variant mb-lg flex flex-col md:flex-row gap-md items-center">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xl pr-md py-sm rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none bg-surface-bright font-body-md text-body-md" placeholder="Search tasks, subjects, or notes..." type="text"/>
+</div>
+<div class="flex gap-sm w-full md:w-auto overflow-x-auto pb-xs md:pb-0">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-variant text-on-surface-variant rounded-lg border border-outline-variant font-label-sm text-label-sm hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">school</span>
+                        Subject
+                    </button>
+<button class="flex items-center gap-xs px-md py-sm bg-surface-variant text-on-surface-variant rounded-lg border border-outline-variant font-label-sm text-label-sm hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span>
+                        Status
+                    </button>
+<button class="flex items-center gap-xs px-md py-sm bg-surface-variant text-on-surface-variant rounded-lg border border-outline-variant font-label-sm text-label-sm hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[18px]">priority_high</span>
+                        Priority
+                    </button>
+</div>
+</div>
+<!-- Assignment Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-lg shadow-sm hover:shadow-md transition-all group relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary-container"></div>
+<div class="flex justify-between items-start mb-md">
+<span class="px-md py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-label-sm font-label-sm">Computer Science</span>
+<div class="flex gap-xs">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-sm text-error hover:bg-error-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-xs">Neural Network Research</h3>
+<p class="text-body-md text-on-surface-variant mb-md line-clamp-2">Complete the literature review section and draft the initial architecture diagram for the final semester project.</p>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="text-label-sm font-label-sm">Due Oct 24</span>
+</div>
+<div class="flex items-center gap-xs px-md py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+                                High
+                            </div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Progress</span>
+<span>65%</span>
+</div>
+<div class="w-full h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 65%"></div>
+</div>
+</div>
+<div class="pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">In Progress</span>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-lg shadow-sm hover:shadow-md transition-all group relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-tertiary"></div>
+<div class="flex justify-between items-start mb-md">
+<span class="px-md py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-label-sm font-label-sm">Mathematics</span>
+<div class="flex gap-xs">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-sm text-error hover:bg-error-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-xs">Advanced Calculus Quiz</h3>
+<p class="text-body-md text-on-surface-variant mb-md line-clamp-2">Practice multivariable integration techniques and review the Stokes' theorem derivations.</p>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="text-label-sm font-label-sm">Due Oct 26</span>
+</div>
+<div class="flex items-center gap-xs px-md py-1 bg-surface-variant text-on-surface-variant rounded-full text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+                                Medium
+                            </div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Progress</span>
+<span>20%</span>
+</div>
+<div class="w-full h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 20%"></div>
+</div>
+</div>
+<div class="pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Todo</span>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Card 3 (Completed) -->
+<div class="bg-surface-container border border-outline-variant rounded-2xl p-lg shadow-sm group relative overflow-hidden opacity-75 grayscale-[0.3]">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-secondary"></div>
+<div class="flex justify-between items-start mb-md">
+<span class="px-md py-1 bg-outline-variant text-on-surface-variant rounded-full text-label-sm font-label-sm">UX Design</span>
+<div class="flex gap-xs">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-sm text-error hover:bg-error-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-xs flex items-center gap-sm">
+                        Design Portfolio Site
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</h3>
+<p class="text-body-md text-on-surface-variant mb-md line-clamp-2">Export all assets and publish the final version to the server for the mid-term review.</p>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="text-label-sm font-label-sm">Due Oct 20</span>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Progress</span>
+<span>100%</span>
+</div>
+<div class="w-full h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 100%"></div>
+</div>
+</div>
+<div class="pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Completed</span>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bento Widget: Summary Stats -->
+<div class="bg-primary-container text-on-primary rounded-2xl p-lg shadow-lg flex flex-col justify-between md:col-span-2 xl:col-span-1 overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="text-headline-md font-headline-md mb-md">Quick Summary</h4>
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-white/10 p-md rounded-xl backdrop-blur-sm">
+<p class="text-xs uppercase tracking-widest opacity-80 mb-1">Active Tasks</p>
+<p class="text-3xl font-bold">12</p>
+</div>
+<div class="bg-white/10 p-md rounded-xl backdrop-blur-sm">
+<p class="text-xs uppercase tracking-widest opacity-80 mb-1">Due Soon</p>
+<p class="text-3xl font-bold">04</p>
+</div>
+</div>
+</div>
+<div class="mt-xl relative z-10">
+<div class="flex items-center justify-between text-sm mb-sm font-bold">
+<span>Weekly Productivity</span>
+<span>82%</span>
+</div>
+<div class="w-full h-3 bg-white/20 rounded-full">
+<div class="h-full bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]" style="width: 82%"></div>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-8 -bottom-8 opacity-20">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'wght' 200;">monitoring</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom NavBar -->
+<nav class="fixed bottom-0 w-full lg:hidden z-50 flex justify-around items-center px-md pb-safe h-16 bg-surface border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group transition-all" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold group transition-all" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="font-label-sm text-label-sm">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group transition-all" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">event</span>
+<span class="font-label-sm text-label-sm">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group transition-all" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">bar_chart</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant group transition-all" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<!-- Interaction Script -->
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 150);
+            });
+        });
+
+        // Simple placeholder search logic
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            console.log('Searching for:', e.target.value);
+            // Frontend logic for filtering could be added here
+        });
+    </script>
+</body></html>
