@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 Student Assignment Tracker
+# Student Assignment Tracker
 ### **Modern Full-Stack MERN Academic Productivity & Workflow Management Platform**
 
 [![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
@@ -20,7 +20,7 @@
 
 ---
 
-## 📖 Overview
+## Overview
 
 **Student Assignment Tracker** is a production-grade, full-stack **MERN** (MongoDB, Express.js, React.js, Node.js) web application engineered to solve academic disorganization, missed submission deadlines, and student burnout.
 
@@ -38,35 +38,35 @@ With an intuitive, minimalist UI and robust backend architecture, the platform e
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- 🔐 **Secure Authentication & Authorization**:
+-  **Secure Authentication & Authorization**:
   - JWT (JSON Web Tokens) with encrypted bcrypt password hashing.
   - Persistent login state via React Context API (`AuthContext`) and local storage.
   - Protected API routes and role-based access control.
 
-- 📋 **Full Lifecycle Assignment Management (CRUD)**:
+-  **Full Lifecycle Assignment Management (CRUD)**:
   - Create, view, update, and delete assignments with title, description, course/subject, due date, and priority level.
   - Quick action to toggle status between `Pending`, `In Progress`, and `Completed`.
 
-- ⏱️ **Automated Overdue Detection**:
+-  **Automated Overdue Detection**:
   - Server-side business logic automatically recalculates and flags assignments as `Overdue` when deadlines pass without completion.
 
-- 📊 **Real-Time Analytics Dashboard**:
+-  **Real-Time Analytics Dashboard**:
   - Aggregate summary cards for **Total**, **Completed**, **Pending**, and **Overdue** assignments.
   - Dynamic completion progress bar reflecting real-time academic standing.
 
-- 🔍 **Smart Search & Multi-Criteria Filtering**:
+-  **Smart Search & Multi-Criteria Filtering**:
   - Instant live search by keyword or assignment title.
   - Multi-dimensional filters by **Subject/Course**, **Priority (High / Medium / Low)**, and **Status**.
 
-- 🎨 **Modern Responsive UI / UX**:
+-  **Modern Responsive UI / UX**:
   - Crafted with React 19, Tailwind CSS v3.4, and Lucide React icons.
   - Desktop, tablet, and mobile-optimized layouts with accessible color contrast.
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```mermaid
 flowchart LR
@@ -101,7 +101,7 @@ flowchart LR
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technologies Used |
 | :--- | :--- |
@@ -115,7 +115,7 @@ flowchart LR
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```bash
 Student_Assignment_Tracker/
@@ -159,7 +159,7 @@ Student_Assignment_Tracker/
 
 ---
 
-## 🚀 Quickstart Guide
+## Quickstart Guide
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher)
@@ -220,7 +220,7 @@ cd Student_Assignment_Tracker
 
 ---
 
-## 🔌 API Reference
+## API Reference
 
 All protected endpoints require the header:  
 `Authorization: Bearer <JWT_TOKEN>`
@@ -246,7 +246,7 @@ All protected endpoints require the header:
 
 ---
 
-## 🔮 Roadmap & Future Scope
+##  Roadmap & Future Scope
 
 - [ ] 📅 **Google Calendar Two-Way Sync** for instant schedule integration.
 - [ ] 🔔 **Email & Push Reminders** 24 hours before assignment due dates.
@@ -256,7 +256,7 @@ All protected endpoints require the header:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -268,12 +268,12 @@ Contributions are what make the open source community such an amazing place to l
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the **MIT License**. See `LICENSE` for details.
 
 ---
 
 <div align="center">
-  <sub>Developed by <a href="https://github.com/akshayamv-0909">@akshayamv-0909</a></sub>
+  <sub>Developed in collaboration with <a href="https://github.com/akshayamv-0909">@akshayamv-0909</a></sub>
 </div>
