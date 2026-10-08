@@ -248,11 +248,11 @@ All protected endpoints require the header:
 
 ##  Roadmap & Future Scope
 
-- [ ] 📅 **Google Calendar Two-Way Sync** for instant schedule integration.
-- [ ] 🔔 **Email & Push Reminders** 24 hours before assignment due dates.
-- [ ] 🤖 **AI Study Plan Generator** that breaks assignments into daily subtasks.
-- [ ] 📎 **Cloud File Attachments** (PDF, docs, code files) via AWS S3 / Cloudinary.
-- [ ] 🏆 **Gamification Engine** with study streaks and achievement badges.
+- [ ] **Google Calendar Two-Way Sync** for instant schedule integration.
+- [ ]  **Email & Push Reminders** 24 hours before assignment due dates.
+- [ ]  **AI Study Plan Generator** that breaks assignments into daily subtasks.
+- [ ]  **Cloud File Attachments** (PDF, docs, code files) via AWS S3 / Cloudinary.
+- [ ]  **Gamification Engine** with study streaks and achievement badges.
 
 ---
 
